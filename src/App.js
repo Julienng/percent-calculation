@@ -65,7 +65,12 @@ function ExtractValue() {
   }, [percent, value]);
 
   return (
-    <Grid gap={5} width={[100, null]}>
+    <Grid
+      gap={5}
+      columns={[2, 2, 6]}
+      p={[3, 3, 0]}
+      bg={["muted", "muted", "background"]}
+    >
       <LabelCentered htmlFor="pourcentage">pourcentage</LabelCentered>
       <Input
         id="pourcentage"
@@ -100,7 +105,12 @@ function ExtractPercent() {
   }, [partValue, totalValue]);
 
   return (
-    <Grid gap={5} width={[50, null]}>
+    <Grid
+      gap={5}
+      columns={[2, 2, 6]}
+      p={[3, 3, 0]}
+      bg={["muted", "muted", "background"]}
+    >
       <LabelCentered htmlFor="partValue">Valeur de</LabelCentered>
       <Input
         id="partValue"
@@ -137,7 +147,12 @@ function ExtractPercentGap() {
   }, [initialValue, finalValue]);
 
   return (
-    <Grid gap={5} width={[50, null]}>
+    <Grid
+      gap={5}
+      columns={[2, 2, 6]}
+      p={[3, 3, 0]}
+      bg={["muted", "muted", "background"]}
+    >
       <LabelCentered htmlFor="initialValue">valeur initiale</LabelCentered>
       <Input
         id="initialValue"
@@ -175,7 +190,9 @@ function App() {
       </Box>
       <Grid width={[null]} gap={4} p={3}>
         <ExtractValue />
+        <hr />
         <ExtractPercent />
+        <hr />
         <ExtractPercentGap />
       </Grid>
     </div>
