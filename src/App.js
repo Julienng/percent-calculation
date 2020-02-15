@@ -51,6 +51,22 @@ function Output(props) {
   );
 }
 
+function prettyPrintNumber(value) {
+  if (value.isNaN()) {
+    return "–";
+  }
+
+  if (!value.isFinite()) {
+    return "∞";
+  }
+
+  if (value.isInteger()) {
+    return value.toString();
+  }
+
+  return value.toFormat(2);
+}
+
 function ExtractValue() {
   const [percent, setPercent] = useState(10);
   const [value, setValue] = useState(1000);
@@ -58,10 +74,7 @@ function ExtractValue() {
   const result = useMemo(() => {
     const val = new BigNumber(value);
     const perc = new BigNumber(percent);
-    return val
-      .times(perc)
-      .div(new BigNumber(100))
-      .toString();
+    return prettyPrintNumber(val.times(perc).div(new BigNumber(100)));
   }, [percent, value]);
 
   return (
@@ -98,10 +111,7 @@ function ExtractPercent() {
   const result = useMemo(() => {
     const val = new BigNumber(partValue);
     const total = new BigNumber(totalValue);
-    return val
-      .div(total)
-      .times(new BigNumber(100))
-      .toString();
+    return prettyPrintNumber(val.div(total).times(new BigNumber(100)));
   }, [partValue, totalValue]);
 
   return (
@@ -140,10 +150,7 @@ function ExtractPercentGap() {
     const final = new BigNumber(finalValue);
 
     const diff = final.minus(init);
-    return diff
-      .div(init)
-      .times(new BigNumber(100))
-      .toString();
+    return prettyPrintNumber(diff.div(init).times(new BigNumber(100)));
   }, [initialValue, finalValue]);
 
   return (
