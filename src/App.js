@@ -89,14 +89,14 @@ function ExtractValue() {
         id="pourcentage"
         type="number"
         value={percent}
-        onChange={e => setPercent(e.currentTarget.valueAsNumber)}
+        onChange={e => setPercent(e.currentTarget.valueAsNumber || null)}
       />
       <LabelCentered htmlFor="value">avec</LabelCentered>
       <Input
         id="value"
         type="number"
         value={value}
-        onChange={e => setValue(e.currentTarget.valueAsNumber)}
+        onChange={e => setValue(e.currentTarget.valueAsNumber || null)}
       />
       <LabelCentered htmlFor="result-value"> donne </LabelCentered>
       <Output id="result-value">{result}</Output>
@@ -126,14 +126,14 @@ function ExtractPercent() {
         id="partValue"
         type="number"
         value={partValue}
-        onChange={e => setPartValue(e.currentTarget.valueAsNumber)}
+        onChange={e => setPartValue(e.currentTarget.valueAsNumber || null)}
       />
       <LabelCentered htmlFor="totalValue">sur un total de </LabelCentered>
       <Input
         id="totalValue"
         type="number"
         value={totalValue}
-        onChange={e => setTotalValue(e.currentTarget.valueAsNumber)}
+        onChange={e => setTotalValue(e.currentTarget.valueAsNumber || null)}
       />
       <LabelCentered htmlFor="result-percent"> donne </LabelCentered>
       <Output id="result-percent">{result} %</Output>
@@ -165,14 +165,14 @@ function ExtractPercentGap() {
         id="initialValue"
         type="number"
         value={initialValue}
-        onChange={e => setInitialValue(e.currentTarget.valueAsNumber)}
+        onChange={e => setInitialValue(e.currentTarget.valueAsNumber || null)}
       />
       <LabelCentered htmlFor="finalValue">valeur finale</LabelCentered>
       <Input
         id="finalValue"
         type="number"
         value={finalValue}
-        onChange={e => setFinalValue(e.currentTarget.valueAsNumber)}
+        onChange={e => setFinalValue(e.currentTarget.valueAsNumber || null)}
       />
       <LabelCentered htmlFor="result-percent-gap"> donne </LabelCentered>
       <Output id="result-percent-gap">{result} %</Output>
